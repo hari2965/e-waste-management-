@@ -1,0 +1,31 @@
+class EwasteItem:
+    def __init__(self, name, category):
+        self.name = name
+        self.category = category
+
+class EwasteBin:
+    def __init__(self):
+        self.items = []
+
+    def add_item(self, item):
+        self.items.append(item)
+
+    def recycle_items(self):
+        recycled_items = []
+        for item in self.items:
+            recycled_items.append(item)
+        self.items = []  # Clear the bin after recycling
+        return recycled_items
+
+# Example usage:
+item1 = EwasteItem("Old Laptop", "Electronics")
+item2 = EwasteItem("Broken Phone", "Electronics")
+
+recycle_bin = EwasteBin()
+recycle_bin.add_item(item1)
+recycle_bin.add_item(item2)
+
+recycled_items = recycle_bin.recycle_items()
+print("Recycled items:")
+for item in recycled_items:
+    print(f"{item.name} - {item.category}")
